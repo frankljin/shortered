@@ -21,10 +21,11 @@
             <input type="url" class="form-control" name="wurl">
             <button type="submit" class="btn btn-outline-primary">shorten</button>
         </form>
-       
-          <p><%= shorturl.full %></p> 
-          <p><%= shorturl.short %></p> 
-   
+        <% let outlink = shorturls[shorturls.length - 1] %>
+      
+          <p style="padding-left: 3%;"><%= outlink.full %></p> 
+          <a style="padding-left: 3%;" href="url">shortered.me/<%= outlink.short %></p> 
+ 
         
         <script src="" async defer></script>
     </body>

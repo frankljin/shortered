@@ -4,7 +4,7 @@ const ejs = require("ejs");
 const mongoose = require("mongoose");
 const shorturl = require("./models/shortered")
 
-mongoose.connect('mongodb://localhost:27017/shortered', {
+mongoose.connect('mongodb+srv://frank:mypass@cluster0.pilxx.mongodb.net/shortered?retryWrites=true&w=majority', {
     useNewUrlParser: true, useUnifiedTopology: true
 });
 
@@ -28,6 +28,10 @@ app.get("/:shorturl", async function(req, res){
     res.redirect(clickurl.full);
 })
 
-app.listen("3000", function(){
-    console.log("Server is up on port 3000.")
+let port = process.env.PORT;
+if (port == null || port == ""){
+    port = 3000;
+}
+app.listen(port, function(){
+    console.log("Server is up.");
 })
